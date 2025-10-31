@@ -1,5 +1,4 @@
 # -*- mode: python ; coding: utf-8 -*-
-from PyInstaller.utils.osx import osxutils
 
 block_cipher = None
 
@@ -18,6 +17,7 @@ a = Analysis(
     excludes=[],
     noarchive=False,
 )
+
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 exe = EXE(
@@ -30,12 +30,7 @@ exe = EXE(
     debug=False,
     strip=False,
     upx=False,
-    console=False,  # windowed
-    disable_windowed_traceback=False,
-    argv_emulation=False,
-    target_arch=None,
-    codesign_identity=None,
-    entitlements_file=None,
+    console=False,   # windowed
     icon='resources/app.icns',
 )
 
