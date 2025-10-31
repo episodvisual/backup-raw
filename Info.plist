@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>BACKUP RAW</string>
+    <key>CFBundleDisplayName</key>
+    <string>BACKUP RAW</string>
+    <key>CFBundleIdentifier</key>
+    <string>id.episodevisual.backupraw</string>
+    <key>CFBundleVersion</key>
+    <string>1.0.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.13.0</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSHumanReadableCopyright</key>
+    <string>© 2025 episode visual</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>App ini mungkin membuka file/folder via dialog.</string>
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>Aplikasi membutuhkan akses ke folder dokumen untuk menyimpan/menyalin file.</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.utilities</string>
+</dict>
+</plist>
