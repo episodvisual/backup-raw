@@ -1,0 +1,44 @@
+name: build-macos
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyinstaller pillow
+
+      - name: Convert ICO to ICNS
+        run: |
+          python tools/ico_to_icns.py resources/logoku.ico resources/app.icns
+
+      - name: Build app
+        run: |
+          pyinstaller --clean pyinstaller.spec
+          ls -la dist
+
+      - name: Zip .app
+        run: |
+          cd dist
+          ditto -c -k --sequesterRsrc --keepParent "BACKUP RAW.app" "BACKUP_RAW_macOS_app.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BACKUP_RAW_macOS_app
+          path: dist/BACKUP_RAW_macOS_app.zip
+          if-no-files-found: error
